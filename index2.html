@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="http://localhost:8080/">Home</a></li>
+      <li class="active"><a href="http://localhost:8080/create">Create</a></li>
+      <li><a href="http://localhost:8080/RD">Read/Delete</a></li>
+      <li><a href="http://localhost:8080/Update">Update</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <form action="/save" method="GET">
+  <input type="text" placeholder="name" name="name">
+  <input type="text" placeholder="age" name="age">
+    <input type="text" placeholder="gender" name="gender">
+  <button type="submit">Submit</button>
+</form>
+ 
+</div>
+
+</body>
+</html>

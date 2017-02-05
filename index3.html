@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+</script>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Simple CRUD</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="http://localhost:8080/">Home</a></li>
+      <li><a href="http://localhost:8080/create">Create</a></li>
+      <li class="active"><a href="http://localhost:8080/RD">Read/Delete</a></li>
+      <li><a href="http://localhost:8080/Update">Update</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Delete</th>
+	  <th>Update</th>
+    </tr>
+  </thead>
+ 
+ </table>
+</div>
+<script>
+$(document).ready(function () {
+  
+    var ite=[];
+    $.getJSON('http://localhost:8080/D', function (data) {
+      console.log(data);
+   var customers = new Array();
+    
+for (var i = 0; i < data.length; i++) {
+console.log(data[i].Name);
+ite.push('<tr>');
+ite.push('<td>'+data[i].Name+'</td>');
+ite.push('<td>'+data[i].Age+'</td>');
+ite.push('<td>'+data[i].Gender+'</td>');
+var url='http://localhost:8080/Remove?id='+data[i]._id;
+var url1='http://localhost:8080/Update?id='+data[i]._id;
+ite.push('<td><a href='+url+'>remove<a></td>');
+ite.push('<td><a href='+url1+'>Update<a></td>');
+ite.push('</tr>');
+}
+$("<tbody/>",{html: ite.join('')}).appendTo("table");    
+  });
+  });
+  </script>
+</body>
+</html>
